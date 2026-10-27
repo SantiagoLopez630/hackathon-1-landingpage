@@ -20,7 +20,10 @@
   <!-- Si JS no está disponible, no dejar la página oculta -->
   <noscript><style>#pantalla-carga{display:none!important}#main-content{opacity:1!important}</style></noscript>
 </head>
-<body>
+<body class="bg-main text-light">
+
+  <!-- ================= TRANSICIÓN PAGE WIPE ================= -->
+  <div class="page-wipe" data-page-wipe aria-hidden="true"></div>
 
   <!-- ================= PANTALLA DE CARGA ================= -->
   <div id="pantalla-carga">
@@ -33,126 +36,144 @@
   <!-- Avisos para lectores de pantalla (carrito) -->
   <div id="a11y-status" class="visually-hidden" role="status" aria-live="polite"></div>
 
-  <div id="main-content" style="opacity: 0;">
-
-    <!-- ================= NAVBAR ================= -->
-    <header class="fb-header sticky-top">
-      <nav class="navbar navbar-expand-md">
-        <div class="container">
-          <a class="navbar-brand fb-brand" href="#inicio">
-            <span class="fb-logo">C</span>CHO!BURGUER<span class="fb-dot">.</span>
-          </a>
-          <button class="navbar-toggler fb-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
-            <span class="navbar-toggler-icon"></span>
+  <!-- ================= NAVBAR ================= -->
+  <header class="fb-header sticky-top">
+    <nav class="navbar navbar-expand-md">
+      <div class="container">
+        <a class="navbar-brand fb-brand" href="#home" data-demo-link="home">
+          <span class="fb-logo">C</span>CHO!BURGUER<span class="fb-dot">.</span>
+        </a>
+        <button class="navbar-toggler fb-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav mx-auto align-items-md-center gap-md-3">
+            <li class="nav-item"><a class="nav-link" href="#menu">Menú</a></li>
+            <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+            <li class="nav-item">
+              <span class="nav-link fb-open" id="estado-horario">
+                <span class="fb-open-dot" id="punto-estado"></span><span id="texto-estado">Abierto hasta 23:30</span>
+              </span>
+            </li>
+          </ul>
+          <!-- Abre el panel del carrito (offcanvas de Bootstrap) -->
+          <button class="fb-cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#carrito" aria-controls="carrito" aria-label="Abrir carrito">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21 8H6"/></svg>
+            <span class="fb-badge" id="carrito-conteo" hidden>0</span>
           </button>
-          <div class="collapse navbar-collapse" id="menuPrincipal">
-            <ul class="navbar-nav mx-auto align-items-md-center gap-md-3">
-              <li class="nav-item"><a class="nav-link" href="#menu">Menú</a></li>
-              <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
-              <li class="nav-item"><span class="nav-link fb-open"><span class="fb-open-dot"></span>Abierto hasta 23:30</span></li>
-            </ul>
-            <!-- Abre el panel del carrito (offcanvas de Bootstrap) -->
-            <button class="fb-cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#carrito" aria-controls="carrito" aria-label="Abrir carrito">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21 8H6"/></svg>
-              <span class="fb-badge" id="carrito-conteo" hidden>0</span>
-            </button>
-          </div>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
 
+  <div id="main-content" style="opacity: 0;">
     <main>
-      <!-- ================= HERO ================= -->
-      <section class="fb-hero" id="inicio">
-        <div class="container">
-          <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-              <span class="fb-pill">Smash. Fuego. Sabor.</span>
-              <h1 class="fb-title">
-                <span class="d-block fb-cream">Muérde</span>
-                <span class="d-block fb-orange">el fuego</span>
-              </h1>
-              <p class="fb-lead">Carne madurada, ingredientes sin atajos y combinaciones que no se olvidan. Tu nueva obsesión se sirve caliente.</p>
-              <div class="d-flex align-items-center flex-wrap gap-3">
-                <a href="#menu" class="btn fb-btn">Ver el menú
-                  <span class="fb-btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-                </a>
-                <div class="fb-delivery"><strong>Entrega en 25 min</strong><small>o te invitamos las papas</small></div>
-              </div>
-            </div>
 
-            <div class="col-lg-6">
-              <div class="fb-visual">
-                <svg class="fb-spark" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
-                <div class="fb-photo"><img src="../img/inferno.jpg" alt="Hamburguesa smash con aguacate y rábano"></div>
-                <div class="fb-card fb-card-sauce"><small>Salsa secreta</small><strong>100% adictiva</strong></div>
-                <div class="fb-card fb-card-rating">
-                  <span class="fb-score">4.9</span>
-                  <div><strong>La más pedida</strong><small>+2.400 mordidas</small></div>
+      <!-- ================= PÁGINA INICIAL / CATÁLOGO ================= -->
+      <section class="demo-page is-active" data-demo-page="home" data-transition-title="CHO!BURGUER" data-transition-color="#0a0a0a" data-transition-text="#f7f3ec" data-transition-accent="#ff5a1f">
+        
+        <!-- HERO -->
+        <div class="fb-hero" id="inicio">
+          <div class="container">
+            <div class="row align-items-center g-5">
+              <div class="col-lg-6">
+                <span class="fb-pill">Smash. Fuego. Sabor.</span>
+                <h1 class="fb-title">
+                  <span class="d-block fb-cream">Muérde</span>
+                  <span class="d-block fb-orange">el fuego</span>
+                </h1>
+                <p class="fb-lead">Carne madurada, ingredientes sin atajos y combinaciones que no se olvidan. Tu nueva obsesión se sirve caliente.</p>
+                <div class="d-flex align-items-center flex-wrap gap-3">
+                  <a href="#menu" class="btn fb-btn">Ver el menú
+                    <span class="fb-btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                  </a>
+                  <div class="fb-delivery"><strong>Entrega en 25 min</strong><small>o te invitamos las papas</small></div>
                 </div>
-                <span class="fb-lime"></span>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="fb-visual">
+                  <svg class="fb-spark" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+                  <div class="fb-photo"><img src="../img/inferno.jpg" alt="Hamburguesa smash con aguacate y rábano"></div>
+                  <div class="fb-card fb-card-sauce"><small>Salsa secreta</small><strong>100% adictiva</strong></div>
+                  <div class="fb-card fb-card-rating">
+                    <span class="fb-score">4.9</span>
+                    <div><strong>La más pedida</strong><small>+2.400 mordidas</small></div>
+                  </div>
+                  <span class="fb-lime"></span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- ================= MENÚ ================= -->
-      <section class="fb-section" id="menu">
-        <div class="container">
-          <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
-            <div>
-              <span class="fb-eyebrow">Elige tu próxima obsesión</span>
-              <h2 class="fb-h2">Nuestro menú</h2>
+        <!-- MENÚ -->
+        <div class="fb-section" id="menu">
+          <div class="container">
+            <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+              <div>
+                <span class="fb-eyebrow">Elige tu próxima obsesión</span>
+                <h2 class="fb-h2">Nuestro menú</h2>
+              </div>
+              <div class="d-flex flex-wrap gap-2" role="group" aria-label="Filtrar menú">
+                <button class="fb-filter active" type="button" data-filtro="todo" aria-pressed="true">Todo</button>
+                <button class="fb-filter" type="button" data-filtro="hamburguesas" aria-pressed="false">Hamburguesas</button>
+                <button class="fb-filter" type="button" data-filtro="acompanamientos" aria-pressed="false">Acompañamientos</button>
+                <button class="fb-filter" type="button" data-filtro="bebidas" aria-pressed="false">Bebidas</button>
+              </div>
             </div>
-            <!-- Filtros: los maneja app.js con data-filtro -->
-            <div class="d-flex flex-wrap gap-2" role="group" aria-label="Filtrar menú">
-              <button class="fb-filter active" type="button" data-filtro="todo" aria-pressed="true">Todo</button>
-              <button class="fb-filter" type="button" data-filtro="hamburguesas" aria-pressed="false">Hamburguesas</button>
-              <button class="fb-filter" type="button" data-filtro="acompanamientos" aria-pressed="false">Acompañamientos</button>
-              <button class="fb-filter" type="button" data-filtro="bebidas" aria-pressed="false">Bebidas</button>
+
+            <!-- Se ordenan las cards desde app.js -->
+            <div class="row g-4" id="contenedor-productos"></div>
+          </div>
+        </div>
+
+        <!-- NOSOTROS -->
+        <div class="fb-section" id="nosotros">
+          <div class="container">
+            <div class="row g-3">
+              <div class="col-lg-8">
+                <div class="fb-about-main">
+                  <span class="fb-eyebrow fb-yellow">Sin reglas. Con oficio.</span>
+                  <h2>Hecho para ensuciarte las manos.</h2>
+                </div>
+              </div>
+              <div class="col-lg-4 d-flex flex-column gap-3">
+                <div class="fb-about-orange">
+                  <strong>100%</strong>
+                  <p>Carne local seleccionada y pan horneado cada mañana.</p>
+                </div>
+                <div class="fb-about-dark">
+                  <span class="fb-eyebrow text-secondary">Tu ritual, mejorado</span>
+                  <p>Pide. Relájate. Nosotros llevamos el fuego hasta tu puerta.</p>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
 
-          <!-- Las cards se generan desde el array "productos" de app.js -->
-          <div class="row g-4" id="contenedor-productos"></div>
+      </section>
+
+      <!-- ================= PÁGINA DETALLE DINÁMICA DE PRODUCTO ================= -->
+      <section class="demo-page" data-demo-page="detalle-producto" data-transition-title="CHO!BURGUER" data-transition-color="#1a1a1a" data-transition-text="#ffffff" data-transition-accent="#ff5a1f">
+        <div class="container py-5">
+          <a href="#home" data-demo-link="home" class="btn btn-outline-light rounded-pill mb-4 px-4 fw-bold">← Volver al Menú</a>
+          
+          <div class="row align-items-center g-5" id="contenedor-detalle-producto">
+            <!-- Pinta los detalles dinámicamente desde app.js -->
+          </div>
         </div>
       </section>
 
-      <!-- ================= NOSOTROS ================= -->
-      <section class="fb-section" id="nosotros">
-        <div class="container">
-          <div class="row g-3">
-            <div class="col-lg-8">
-              <div class="fb-about-main">
-                <span class="fb-eyebrow fb-yellow">Sin reglas. Con oficio.</span>
-                <h2>Hecho para ensuciarte las manos.</h2>
-              </div>
-            </div>
-            <div class="col-lg-4 d-flex flex-column gap-3">
-              <div class="fb-about-orange">
-                <strong>100%</strong>
-                <p>Carne local seleccionada y pan horneado cada mañana.</p>
-              </div>
-              <div class="fb-about-dark">
-                <span class="fb-eyebrow text-secondary">Tu ritual, mejorado</span>
-                <p>Pide. Relájate. Nosotros llevamos el fuego hasta tu puerta.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
 
     <!-- ================= FOOTER ================= -->
     <footer class="fb-footer">
       <div class="container">
-
-        <!-- Equipo de desarrollo: reemplaza "Nombre 1…4" por los nombres reales (y la inicial del círculo) -->
         <div class="fb-team">
           <span class="fb-team-label">Equipo de desarrollo</span>
           <ul class="fb-team-list list-unstyled m-0">
-            <li><span class="fb-team-avatar" aria-hidden="true">S</span>Santiago López </li>
+            <li><span class="fb-team-avatar" aria-hidden="true">S</span>Santiago López</li>
             <li><span class="fb-team-avatar" aria-hidden="true">A</span>Lizarazo Ana</li>
             <li><span class="fb-team-avatar" aria-hidden="true">J</span>Johan Gonzalez</li>
             <li><span class="fb-team-avatar" aria-hidden="true">L</span>Luisa Sanchez</li>
@@ -168,8 +189,7 @@
 
   </div><!-- /#main-content -->
 
-  <!-- ================= CARRITO (offcanvas) =================
-       Va fuera de #main-content para que su position:fixed no dependa del transform de la animación -->
+  <!-- ================= CARRITO (offcanvas) ================= -->
   <div class="offcanvas offcanvas-end fb-offcanvas" tabindex="-1" id="carrito" aria-labelledby="carritoTitulo">
     <div class="offcanvas-header">
       <div>
@@ -182,7 +202,6 @@
     </div>
 
     <div class="offcanvas-body d-flex flex-column">
-      <!-- Estado vacío -->
       <div id="carrito-vacio" class="fb-empty text-center">
         <div class="fb-empty-icon">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21 8H6"/></svg>
@@ -192,7 +211,6 @@
         <a href="#menu" class="btn fb-btn fb-btn-sm" data-bs-dismiss="offcanvas">Explorar menú</a>
       </div>
 
-      <!-- Productos agregados (los pinta app.js) -->
       <ul id="lista-carrito" class="fb-cart-list list-unstyled m-0" hidden></ul>
     </div>
 
@@ -208,7 +226,7 @@
     </div>
   </div>
 
-  <!-- Bootstrap JS (navbar móvil y carrito offcanvas) -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
