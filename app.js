@@ -1,12 +1,12 @@
 // Catálogo de hamburguesas gourmet
 const productos = [
   { id: 1, nombre: "Trufada Royale", precio: 34000, categoria: "hamburguesas", rating: 4.9, img: "../img/inferno.jpg", desc: "Carne angus, queso brie y mayonesa de trufa negra." },
-  { id: 2, nombre: "Bacon Bourbon", precio: 32000, categoria: "hamburguesas", rating: 4.8, img: "../img/inferno.jpg", desc: "Doble smash, tocineta glaseada en bourbon y cheddar." },
-  { id: 3, nombre: "Smash Clasica", precio: 28000, categoria: "hamburguesas", rating: 4.7, img: "../img/inferno.jpg", desc: "Cebolla crispy, doble queso americano y salsa especial." },
-  { id: 4, nombre: "Portobello Veggie", precio: 29000, categoria: "hamburguesas", rating: 4.6, img: "../img/inferno.jpg", desc: "Hongo portobello a la parrilla, queso de cabra y espinaca." },
-  { id: 5, nombre: "Fire Fries", precio: 6900, categoria: "acompanamientos", rating: 4.8, img: "../img/fries.jpg", desc: "Papas crujientes, cheddar, chile y cebollín fresco." },
-  { id: 6, nombre: "Onion Crunch", precio: 5900, categoria: "acompanamientos", rating: 4.6, img: "../img/onion.jpg", desc: "Aros de cebolla dorados con dip de pimentón ahumado." },
-  { id: 7, nombre: "Cherry Fizz", precio: 4500, categoria: "bebidas", rating: 4.7, img: "../img/cherry.jpg", desc: "Soda artesanal de cereza, lima y mucho hielo." },
+  { id: 2, nombre: "Bacon Bourbon", precio: 32000, categoria: "hamburguesas", rating: 4.8, img: "../img/hamburguesa.jpg", desc: "Doble smash, tocineta glaseada en bourbon y cheddar." },
+  { id: 3, nombre: "Smash Clasica", precio: 28000, categoria: "hamburguesas", rating: 4.7, img: "../img/hambur.jpg", desc: "Cebolla crispy, doble queso americano y salsa especial." },
+  { id: 4, nombre: "Portobello Veggie", precio: 29000, categoria: "hamburguesas", rating: 4.6, img: "../img/clasic.jpg", desc: "Hongo portobello a la parrilla, queso de cabra y espinaca." },
+  { id: 5, nombre: "Fire Fries", precio: 6900, categoria: "acompanamientos", rating: 4.8, img: "../img/friess.jpg", desc: "Papas crujientes, cheddar, chile y cebollín fresco." },
+  { id: 6, nombre: "Onion Crunch", precio: 5900, categoria: "acompanamientos", rating: 4.6, img: "../img/onionn.jpg", desc: "Aros de cebolla dorados con dip de pimentón ahumado." },
+  { id: 7, nombre: "Cherry Fizz", precio: 4500, categoria: "bebidas", rating: 4.7, img: "../img/fizza.jpg", desc: "Soda artesanal de cereza, lima y mucho hielo." },
 ];
 
 let carrito = JSON.parse(localStorage.getItem("carrito_burgers")) || [];
