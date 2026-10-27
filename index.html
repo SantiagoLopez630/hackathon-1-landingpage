@@ -1,259 +1,214 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choo!Burger</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cho!Burguer – Muérde el fuego</title>
 
-    <!--Fuentes-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Gwendolyn:wght@400;700&family=Handlee&family=Uncial+Antiqua&family=Varela+Round&display=swap"
-        rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Goblin+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 
-    <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="app.js"></script>
-    <link rel="stylesheet" href="styles.css">
+  <!-- Anime.js (animación del loader) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <!-- defer: app.js corre cuando el DOM ya existe -->
+  <script src="app.js" defer></script>
+  <!-- Si JS no está disponible, no dejar la página oculta -->
+  <noscript><style>#pantalla-carga{display:none!important}#main-content{opacity:1!important}</style></noscript>
 </head>
-
-
 <body>
-    <div id="pantalla-carga">
-        <div class="contenedor-cargador-hamburguesa">
-            <img src="ham1.png" alt="Hamburguesa cargando" class="icono-hamburguesa" id="hamburguesa-animada">
-            <div class="texto-carga">Cocinando tu experiencia...</div>
-        </div>
+
+  <!-- ================= PANTALLA DE CARGA ================= -->
+  <div id="pantalla-carga">
+    <div class="contenedor-cargador-hamburguesa">
+      <img src="../img/ham1.png" alt="Hamburguesa cargando" class="icono-hamburguesa" id="hamburguesa-animada">
+      <div class="texto-carga">Cocinando tu experiencia...</div>
     </div>
-    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-        <div class="container-fluid text-center">
+  </div>
 
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-                <img src="" alt="Logo">
-            </a>
+  <!-- Avisos para lectores de pantalla (carrito) -->
+  <div id="a11y-status" class="visually-hidden" role="status" aria-live="polite"></div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Menú</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Nosotros</a>
-                    </li>
+  <div id="main-content" style="opacity: 0;">
 
-            </div>
-        </div>
-    </nav>
-
-    <!--Banner-->
-
-    <section class="banner container-fluid bg-dark text-white py-5">
+    <!-- ================= NAVBAR ================= -->
+    <header class="fb-header sticky-top">
+      <nav class="navbar navbar-expand-md">
         <div class="container">
-            <div class="row align-items-center justify-content-between">
-
-
-                <div class="col-lg-6 banner-contenido mb-4 mb-lg-0">
-                    <h1 class="display-4 fw-bold mb-3">MUERDE EL FUEGO</h1>
-
-                    <p class="lead text-white-50">
-                        Carne madurada, ingredientes sin atajos y combinaciones que no se olvidan.
-                        Tu nueva obsesión se sirve caliente.
-                    </p>
-
-                    <button> Ver el menú</button>
-                </div>
-
-                <!--IMG-->
-                <div class="col-lg-5 text-center">
-                    <img src="/hackathon-1-landingpage/img/hamburguesa.jpg" alt="Hamburguesa Choo!Burger"
-                        class="img-fluid rounded-4 shadow-lg" style="max-height: 400px; object-fit: cover;">
-                </div>
-            </div>
+          <a class="navbar-brand fb-brand" href="#inicio">
+            <span class="fb-logo">C</span>CHO!BURGUER<span class="fb-dot">.</span>
+          </a>
+          <button class="navbar-toggler fb-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="menuPrincipal">
+            <ul class="navbar-nav mx-auto align-items-md-center gap-md-3">
+              <li class="nav-item"><a class="nav-link" href="#menu">Menú</a></li>
+              <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+              <li class="nav-item"><span class="nav-link fb-open"><span class="fb-open-dot"></span>Abierto hasta 23:30</span></li>
+            </ul>
+            <!-- Abre el panel del carrito (offcanvas de Bootstrap) -->
+            <button class="fb-cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#carrito" aria-controls="carrito" aria-label="Abrir carrito">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21 8H6"/></svg>
+              <span class="fb-badge" id="carrito-conteo" hidden>0</span>
+            </button>
+          </div>
         </div>
-    </section>
+      </nav>
+    </header>
 
-    <!--Aside pendiente para desplegarse en el menu-->
-
-
-
-    <!--Cards-->
-    <section class="container my-5">
-
-        <div class="row g-4 ">
-
-            <div class="col-12 col-md-4">
-                <div class="card bg-dark text-white border-secondary" style="width: 18rem grid text-center;">
-                    <img src="/hackathon-1-landingpage/img/infernos.jpg" class="card-img-top" alt="Hamburguesa-inferno">
-                    <div class="card-body">
-                        <h5 class="card-title">Inferno</h5>
-                        <p class="card-text">Doble smash, cheddar, jalapeños, cebolla crispy y salsa fuego.
-                        </p>
-                        <div class="d-flex align-items-center justify-content-between">.
-                            <a href="#" class="btn btn-primary">Agregar</a>
-                            <span class="ms-auto fw-bold text-white">$38.000</span>
-
-                        </div>
-                    </div>
-                </div>
+    <main>
+      <!-- ================= HERO ================= -->
+      <section class="fb-hero" id="inicio">
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <span class="fb-pill">Smash. Fuego. Sabor.</span>
+              <h1 class="fb-title">
+                <span class="d-block fb-cream">Muérde</span>
+                <span class="d-block fb-orange">el fuego</span>
+              </h1>
+              <p class="fb-lead">Carne madurada, ingredientes sin atajos y combinaciones que no se olvidan. Tu nueva obsesión se sirve caliente.</p>
+              <div class="d-flex align-items-center flex-wrap gap-3">
+                <a href="#menu" class="btn fb-btn">Ver el menú
+                  <span class="fb-btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                </a>
+                <div class="fb-delivery"><strong>Entrega en 25 min</strong><small>o te invitamos las papas</small></div>
+              </div>
             </div>
 
-            <div class="col-12 col-md-4">
-                <div class="card bg-dark text-white border-secondary" style="width: 18rem grid text-center;">
-                    <img src="/hackathon-1-landingpage/img/Truffle.1.jpg" class="card-img-top"
-                        alt="Hamburguesa-Truffle">
-                    <div class="card-body">
-                        <h5 class="card-title">Truffle Melt</h5>
-                        <p class="card-text">Carne madurada, provolone, hongos y mayonesa de trufa.
-                        </p>
-                        <div class="d-flex align-items-center justify-content-between">.
-                            <a href="#" class="btn btn-primary">Agregar</a>
-                            <span class="ms-auto fw-bold text-white">$35.000</span>
-
-                        </div>
-                    </div>
+            <div class="col-lg-6">
+              <div class="fb-visual">
+                <svg class="fb-spark" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+                <div class="fb-photo"><img src="../img/inferno.jpg" alt="Hamburguesa smash con aguacate y rábano"></div>
+                <div class="fb-card fb-card-sauce"><small>Salsa secreta</small><strong>100% adictiva</strong></div>
+                <div class="fb-card fb-card-rating">
+                  <span class="fb-score">4.9</span>
+                  <div><strong>La más pedida</strong><small>+2.400 mordidas</small></div>
                 </div>
+                <span class="fb-lime"></span>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="col-12 col-md-4">
-                <div class="card bg-dark text-white border-secondary" style="width: 18rem grid text-center;">
-                    <img src="/hackathon-1-landingpage/img/clasic.jpg" class="card-img-top" alt="Hamburguesa-clásica">
-                    <div class="card-body">
-                        <h5 class="card-title">Clásica 88</h5>
-                        <p class="card-text">Smash, cheddar, pepinillos y nuestra salsa secreta de la casa.
-
-                        </p>
-                        <div class="d-flex align-items-center justify-content-between">.
-                            <a href="#" class="btn btn-primary">Agregar</a>
-                            <span class="ms-auto fw-bold text-white">$ 33.000</span>
-
-                        </div>
-                    </div>
-                </div>
+      <!-- ================= MENÚ ================= -->
+      <section class="fb-section" id="menu">
+        <div class="container">
+          <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+            <div>
+              <span class="fb-eyebrow">Elige tu próxima obsesión</span>
+              <h2 class="fb-h2">Nuestro menú</h2>
             </div>
-
-            <div class="col-12 col-md-4">
-                <div class="card bg-dark text-white border-secondary " style="width: 18rem grid text-center;">
-                    <img src="/hackathon-1-landingpage/img/friess.jpg" class="card-img-top" alt="Fire-fries">
-                    <div class="card-body">
-                        <h5 class="card-title">Fire Fries</h5>
-                        <p class="card-text">
-                            Papas crujientes, cheddar, chile y cebollín fresco.
-                        </p>
-                        <div class="d-flex align-items-center justify-content-between">.
-                            <a href="#" class="btn btn-primary">Agregar</a>
-                            <span class="ms-auto fw-bold text-white">$ 10.000</span>
-
-                        </div>
-                    </div>
-                </div>
+            <!-- Filtros: los maneja app.js con data-filtro -->
+            <div class="d-flex flex-wrap gap-2" role="group" aria-label="Filtrar menú">
+              <button class="fb-filter active" type="button" data-filtro="todo" aria-pressed="true">Todo</button>
+              <button class="fb-filter" type="button" data-filtro="hamburguesas" aria-pressed="false">Hamburguesas</button>
+              <button class="fb-filter" type="button" data-filtro="acompanamientos" aria-pressed="false">Acompañamientos</button>
+              <button class="fb-filter" type="button" data-filtro="bebidas" aria-pressed="false">Bebidas</button>
             </div>
+          </div>
 
-            <div class="col-12 col-md-4">
-                <div class="card bg-dark text-white border-secondary" style="width: 18rem grid text-center;">
-                    <img src="/hackathon-1-landingpage/img/onionn.jpg" class="card-img-top" alt="Onion-crunch">
-                    <div class="card-body">
-                        <h5 class="card-title">Onion Crunch</h5>
-                        <p class="card-text">
-                            Aros de cebolla dorados con pimentón ahumado.
-                        </p>
+          <!-- Las cards se generan desde el array "productos" de app.js -->
+          <div class="row g-4" id="contenedor-productos"></div>
+        </div>
+      </section>
 
-                        <div class="d-flex align-items-center justify-content-between">.
-                            <a href="#" class="btn btn-primary">Agregar</a>
-                            <span class="ms-auto fw-bold text-white">$ 15.000</span>
-
-                        </div>
-                    </div>
-                </div>
+      <!-- ================= NOSOTROS ================= -->
+      <section class="fb-section" id="nosotros">
+        <div class="container">
+          <div class="row g-3">
+            <div class="col-lg-8">
+              <div class="fb-about-main">
+                <span class="fb-eyebrow fb-yellow">Sin reglas. Con oficio.</span>
+                <h2>Hecho para ensuciarte las manos.</h2>
+              </div>
             </div>
-
-            <div class="col-12 col-md-4">
-                <div class="card bg-dark text-white border-secondary" style="width: 18rem grid text-center;">
-                    <img src="/hackathon-1-landingpage/img/fizza.jpg" class="card-img-top" alt="Fizz">
-                    <div class="card-body">
-                        <h5 class="card-title">Cherry Fizz</h5>
-                        <p class="card-text">
-                            Soda artesanal de cereza, lima y mucho hielo.
-                        </p>
-
-                        <div class="d-flex align-items-center justify-content-between">.
-                            <a href="#" class="btn btn-primary">Agregar</a>
-                            <span class="ms-auto fw-bold text-white">$ 14.000</span>
-
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-4 d-flex flex-column gap-3">
+              <div class="fb-about-orange">
+                <strong>100%</strong>
+                <p>Carne local seleccionada y pan horneado cada mañana.</p>
+              </div>
+              <div class="fb-about-dark">
+                <span class="fb-eyebrow text-secondary">Tu ritual, mejorado</span>
+                <p>Pide. Relájate. Nosotros llevamos el fuego hasta tu puerta.</p>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
+    <!-- ================= FOOTER ================= -->
+    <footer class="fb-footer">
+      <div class="container">
+
+        <!-- Equipo de desarrollo: reemplaza "Nombre 1…4" por los nombres reales (y la inicial del círculo) -->
+        <div class="fb-team">
+          <span class="fb-team-label">Equipo de desarrollo</span>
+          <ul class="fb-team-list list-unstyled m-0">
+            <li><span class="fb-team-avatar" aria-hidden="true">S</span>Santiago López </li>
+            <li><span class="fb-team-avatar" aria-hidden="true">A</span>Lizarazo Ana</li>
+            <li><span class="fb-team-avatar" aria-hidden="true">J</span>Johan Gonzalez</li>
+            <li><span class="fb-team-avatar" aria-hidden="true">L</span>Luisa Sanchez</li>
+          </ul>
         </div>
 
-    </section>
-
-    <!--Seccion final-->
-    <section>
-        <div class="container my-5">
-            <div class="row align-items-center g-4">
-
-                <!--Imagen/ultima seccion-->
-                <div class="col-12 col-lg-6 position-relative">
-                    <img class="img-fluid rounded-4 shadow w-100" src="/hackathon-1-landingpage/img/hambur.jpg" alt="Hamburguesa-rica">
-                    
-                </div>
-
-        
-                <div class="col-12 col-lg-6 d-flex flex-column gap-3">
-
-                    
-                    <div class="p-4 rounded-4 text-white bg-dark" >
-                        <h3 class="fw-bold display-6">100%</h3>
-                        <p class="mb-0 fw-medium">Carne local seleccionada y pan horneado cada mañana</p>
-                    </div>
-
-                    
-                    <div class="p-4 rounded-4 bg-dark text-white border border-secondary">
-                        <small class="text-uppercase text-white-50 fw-bold"
-                            style="font-size: 0.75rem; letter-spacing: 1px;">Tu ritual, mejorado</small>
-                        <p class="mb-0 fw-bold fs-5 mt-1">Pide. Relájate. Nosotros llevamos el fuego hasta tu puerta.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
+        <div class="d-flex flex-wrap justify-content-between gap-2">
+          <span>© 2026 <span class="fb-orange">CHO!BURGUER</span>. Hecho con hambre.</span>
+          <span class="fb-cities">Bogotá DC · Colombia</span>
         </div>
-    </section>
+      </div>
+    </footer>
 
+  </div><!-- /#main-content -->
 
-<!--Footer-->
-
-<footer class="bg-dark text-white-50 py-4 border-top border-secondary">
-    <div class="container">
-        <div class="row align-items-center">
-            
-           
-            <div class="col-12 col-md-6 text-center text-md-start mb-3 mb-md-0">
-                <small> 2025 FIREBUN. Hecho con hambre.</small>
-            </div>
-            
-            <div class="col-12 col-md-6 text-center text-md-end">
-                <small class="text-white">Bogotá · Medellin · Cali</small>
-            </div>
-            
-        </div>
+  <!-- ================= CARRITO (offcanvas) =================
+       Va fuera de #main-content para que su position:fixed no dependa del transform de la animación -->
+  <div class="offcanvas offcanvas-end fb-offcanvas" tabindex="-1" id="carrito" aria-labelledby="carritoTitulo">
+    <div class="offcanvas-header">
+      <div>
+        <h2 class="offcanvas-title" id="carritoTitulo">Tu pedido</h2>
+        <small>Guardado automáticamente</small>
+      </div>
+      <button type="button" class="fb-close" data-bs-dismiss="offcanvas" aria-label="Cerrar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
     </div>
-</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+    <div class="offcanvas-body d-flex flex-column">
+      <!-- Estado vacío -->
+      <div id="carrito-vacio" class="fb-empty text-center">
+        <div class="fb-empty-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21 8H6"/></svg>
+        </div>
+        <h3>Aún no hay fuego aquí</h3>
+        <p>Agrega algo delicioso para empezar.</p>
+        <a href="#menu" class="btn fb-btn fb-btn-sm" data-bs-dismiss="offcanvas">Explorar menú</a>
+      </div>
+
+      <!-- Productos agregados (los pinta app.js) -->
+      <ul id="lista-carrito" class="fb-cart-list list-unstyled m-0" hidden></ul>
+    </div>
+
+    <div class="fb-cart-foot">
+      <div class="d-flex justify-content-between"><span>Subtotal</span><span id="carrito-subtotal">$ 0</span></div>
+      <div class="d-flex justify-content-between"><span>Envío</span><span id="carrito-envio">$ 0</span></div>
+      <hr>
+      <div class="d-flex justify-content-between fb-total"><span>Total</span><span id="carrito-total">$ 0</span></div>
+      <button class="btn fb-pay" type="button" id="btn-pagar" disabled>Proceder al pago
+        <span class="fb-btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </button>
+      <button class="fb-clear" type="button" id="btn-vaciar" hidden>Vaciar carrito</button>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (navbar móvil y carrito offcanvas) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
